@@ -6,7 +6,7 @@
 - intDesc is written in python3 and runs on the command line. Each interaction criterion contains user-tunable parameters, which can be changed in the configuration file. 
 - intDesc requires ligand/protein complex structure in MOL2 format and ligand ID information as inputs. Moreover, the ligand/protein complex structure requires hydrogens and Gasteiger charges. The ligand ID information is the three-letter code of the ligand written in the MOL2 file.
 - intDesc generates four files containing information on interactions (raw list, interaction count list, one-hot list, and interaction sum list) and one PyMOL script file for visualization.
-- Please refer to Ohta, M. et al., “Comprehensive and precise identification, visualization, and enumeration of ligand-protein interactions” (Submitted) for the details and the applications. 
+- Please refer to Ohta, M. et al., “Comprehensive and precise identification, visualization, and enumeration of ligand-protein interactions” (Submitted) for the details and the applications. The data discussed in this paper are contained in the directory "Results_of_Paper" in the intDesc repository.
 
 
 ## Environment
