@@ -18,4 +18,3 @@ Download intDesc.tgz, extract the file, and refer to the manual (intDesc/manuals
 ## Remarks
 - See the manual for the types of interactions analyzed by intDesc.
 - A document on the definition of interactions is currently being prepared.
-- Please note that access to this program is currently restricted to members of LINC (Life INterigence Consocium) only. It will be fully opened to the public as soon as the papers under submission are accepted.
