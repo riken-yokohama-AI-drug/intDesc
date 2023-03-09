@@ -13,7 +13,7 @@
 intDesc is available in the python 3.9 environment. It also requires the python packages numpy, pyyaml, networkx, and biopandas.
 
 ## Usage
-Download intDesc.tgz, extract the file, and refer to the manual (intDesc/manuals).
+Download intDesc.zip, extract the file, and refer to the manual (intDesc/manuals).
 
 ## Remarks
 - See the manual for the types of interactions analyzed by intDesc.
