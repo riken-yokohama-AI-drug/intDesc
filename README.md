@@ -41,11 +41,11 @@ See below source code folder for a python script for intDesc.
 ## Examples
 - 31 examples of ligand-protein interactions with intDesc-LP are stored in the examples folder.
 
-***[examples](examples.zip)***<br>
+***[examples.zip](examples.zip)***<br>
 
 - List of 31 example calculations in csv file
 
-***[examples_list](examples_list.csv)***<br>
+***[examples_list.csv](examples_list.csv)***<br>
 
 ## Remarks
 - See the manual for the types of interactions analyzed by intDesc.
