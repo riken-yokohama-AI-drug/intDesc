@@ -20,18 +20,18 @@
 intDesc is available in the python 3.9 environment. It also requires the python packages numpy, pyyaml, networkx, and biopandas.
 To install intDesc-LP, download and use the following intDesc-LP_v1.0.zip file.
 
-***[intDesc-LP_v1.0.zip](intDesc-LP_v1.0.zip)***<br>
+***[intDesc-LP_v1.1.zip](intDesc-LP_v1.1.zip)***<br>
 
 Please refer to the following pdf file for details on installation.
 
-***[Install Manual (English)](manuals/Install_Manual_of_intDesc-LP_rev2.pdf)***<br>
-***[Install Manual (Japanese)](manuals/Install_Manual_of_intDesc-LP_JP_rev2.pdf)***<br>
+***[Install Manual (English)](manuals/install_manual_intDesc-LP_ver1.1_EN.pdf)***<br>
+***[Install Manual (Japanese)](manuals/install_manual_intDesc-LP_ver1.1_JP.pdf)***<br>
 
 ## Usage
 For details on how to run intDesc, please refer to the following pdf file.
 
-***[User Manual (English)](manuals/Users_Manual_of_intDesc-LP_rev2.pdf)***<br>
-***[User Manual (Japanese)](manuals/Users_Manual_of_intDesc-LP_JP_rev2.pdf)***<br>
+***[User Manual (English)](manuals/user_manual_intDesc-LP_ver1.1_EN.pdf)***<br>
+***[User Manual (Japanese)](manuals/user_manual_intDesc-LP_ver1,1_JP.pdf)***<br>
 
 ## Source Code
 See below source code folder for a python script for intDesc.
@@ -41,11 +41,11 @@ See below source code folder for a python script for intDesc.
 ## Examples
 - 31 examples of ligand-protein interactions with intDesc-LP are stored in the examples folder.
 
-***[examples](examples)***<br>
+***[examples](examples.zip)***<br>
 
 - List of 31 example calculations in csv file
 
-***[examples_list](examples/examples_list.csv)***<br>
+***[examples_list](examples_list.csv)***<br>
 
 ## Remarks
 - See the manual for the types of interactions analyzed by intDesc.
