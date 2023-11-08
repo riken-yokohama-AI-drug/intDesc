@@ -31,7 +31,7 @@ Please refer to the following pdf file for details on installation.
 For details on how to run intDesc, please refer to the following pdf file.
 
 ***[User Manual (English)](manuals/user_manual_intDesc-LP_ver1.1_EN.pdf)***<br>
-***[User Manual (Japanese)](manuals/user_manual_intDesc-LP_ver1,1_JP.pdf)***<br>
+***[User Manual (Japanese)](manuals/user_manual_intDesc-LP_ver1.1_JP.pdf)***<br>
 
 ## Source Code
 See below source code folder for a python script for intDesc.
