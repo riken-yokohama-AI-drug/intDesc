@@ -1,5 +1,5 @@
 # intDesc
-intDesc is software for automatic, comprehensive, and precise identification and visualization of various molecular interactions based on the 3D structure. This repository provides the ability to detect interactions for residues of interest in protein-protein interactions.
+intDesc is software for automatic, comprehensive, and precise identification and visualization of various molecular interactions based on the 3D structure. This repository explains intDesc's ability of detecting interactions for residues of interest in protein-protein interactions.
 
 ## Features
 - intDesc allows the detailed identification of numerous interactions, such as CH-O, CH-π, NH-π, S-π, S-O, and dipole interactions. 
@@ -85,6 +85,12 @@ antigen:
 ```
 
 In the example, interactions will be detected between the region specified by mutant_[N] item(s) and the region specified by the antibody and antigen items. In the mutant_[N] item, the residue ID, the residue name, and chain ID are given by num, name, and chain items, respectively. If the type item is "side", the target region will be restricted to the side chain. The the type item is "main", the target region will include main chain atoms, names of which are C, N, CA, O, H, HA. See the install_test directory for more examples.
+
+### Output files
+Typical output files are as follows.
+  - prefix_raw_list.txt: A list of atom information that involved in the detected interactions.
+  - prefix.pml: A pymol script to visualize the detected interactions. This file will be loaded into the pymol session that opens the mol2 file used in the interaction_descriptor.py program.
+  - prefix_interaction_count_list.csv:  A list of the number of interactions detected for each individual type of interaction.
 
 ## Citation
 
