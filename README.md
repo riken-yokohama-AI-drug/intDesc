@@ -1,4 +1,4 @@
-# intDesc
+# intDesc-AbMut
 intDesc is software for automatic, comprehensive, and precise identification and visualization of various molecular interactions based on the 3D structure. This repository explains intDesc's ability of detecting interactions for residues of interest in protein-protein interactions.
 
 ## Features
@@ -46,7 +46,7 @@ $ python interaction_descriptor.py mutant ¥
         Specify the vdW radius file (See input/vdw_radius.yaml)
   - [interaction threshold setting file]
         Specify interaction criteria file (See input/param.yaml)
-  - [interaction priority file] ¥
+  - [interaction priority file] 
         Specify the priority file (See input/priority.yaml)
   - --on_14, Set this option if you wish to detect 1-3, 1-4 interactions,
         among the interactions detected between atoms connected by covalent bonds.
