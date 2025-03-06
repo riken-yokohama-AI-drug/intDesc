@@ -82,4 +82,4 @@ NH_S: 1.0 3.155 3.4 105.0 180.0 165.0 180.0
 PI_PI: 0.4 30.0 60.0
 
 # interaction_type buffer(Ang) angle1_min(deg) angle1_max(deg) angle2 angle3(deg) charge
-OMulPol: 0.6 75.0 105.0 20.0 150.0 0.2
+OMulPol: 0.7 75.0 105.0 35.0 150.0 0.2
