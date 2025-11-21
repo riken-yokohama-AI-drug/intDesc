@@ -95,15 +95,16 @@ Typical output files are as follows.
 ## Citation
 
 ```text
-@article{Chiba2024,
-  doi = {TBD},
-  url = {TBD},
-  year = {2024},
-  month = TBD,
-  publisher = {TBD},
-  author = {Shuntaro Chiba and Tsutomu Yamane and Yasushi Okuno and Mitsunori Ikeguchi and Masateru Ohta},
-  title = {TBD},
-  journal = {TBD}
+@article{Chiba2025,
+  doi = {https://doi.org/10.1101/2025.11.18.688974},
+  url = {},
+  year = {2025},
+  month = {November},
+  publisher = {},
+  author = {Shuntaro Chiba and Masateru Ohta and Tsutomu Yamane and Yasushi Okuno and Mitsunori Ikeguchi},
+  title = {intDesc-AbMut: Describing and understanding how antibody mutations impact their environmental interactions},
+  journal = {bioRxiv}
 }
 ```
+
 
