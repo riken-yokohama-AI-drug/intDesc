@@ -305,7 +305,9 @@ class Mol2:
                     raise ValueError('Specify "num" Or "name" Or "Chain".')
 
             # NOTE: Do not overwrite the previously updated value when the specified range overlaps.
-            cond = cond & (self.df_atom["molcular_type"].isnull())
+            # "mutant" can overwrite 'molcular_type'  25/11/10
+            if not ('mutant' in mol_name):
+                cond = cond & (self.df_atom["molcular_type"].isnull())
 
             if "protein" in mol_name:
                 self.df_atom.loc[cond, "molcular_type"] = "Pro"
@@ -334,7 +336,6 @@ class Mol2:
                     solvent_no = mol_name.split("_")[1]
                 self.df_atom.loc[cond, "molcular_type"] = f"S{solvent_no}"
                 assigned_molcular_type[mol_name] = f"S{solvent_no}"
-
         for mol_name, molcular_type in assigned_molcular_type.items():
             df = self.df_atom.loc[self.df_atom["molcular_type"] == molcular_type]
             if df.empty:
