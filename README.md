@@ -17,12 +17,18 @@ intDesc is software for automatic, comprehensive, and precise identification and
 - biopandas 0.2.7
 - pyyaml
 
-## Install
+## Install and Test
 This program can be executed by git-cloning this repository.
-The validation for the installation of this program is as follows:
+To validate the installation, run the provided test:
 
- cd install_test/
+```text
+ cd install_test
+ unzip data.zip
  bash run_test.sh
+```
+
+The script calculates the interaction descriptors for the provided structures and input parameters, and compares them with precomputed reference results.
+If the results match, OK will be printed, indicating that the installation was successful.
 
 ## How to run intDesc
 ```text
@@ -106,5 +112,6 @@ Typical output files are as follows.
   journal = {bioRxiv}
 }
 ```
+
 
 
