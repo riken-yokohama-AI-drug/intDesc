@@ -98,6 +98,49 @@ Typical output files are as follows.
   - prefix.pml: A pymol script to visualize the detected interactions. This file will be loaded into the pymol session that opens the mol2 file used in the interaction_descriptor.py program.
   - prefix_interaction_count_list.csv:  A list of the number of interactions detected for each individual type of interaction.
 
+## Using Docker 
+
+### Build Docker Image
+``` text
+$ docker build -t intdesc:mutant -f docker/Dockerfile .
+```
+
+### Run Using Docker
+``` text
+$ docker run --rm \
+           -u $(id -u):$(id -g) \
+           -v "$(pwd):$(pwd)" \
+           -w "$(pwd)" \
+           intdesc:mutant \
+                 [mol2 file]  \
+                 [Interaction target molecule specification file]  \
+                 [van der waals radius definition file]  \
+                 [interaction criteria file]  \
+                 [interaction priority file]  \
+                 [prefix of output file name] \
+                 (--on_14)  \
+                 (--dup)  \
+                 (--no_mediate)  \
+                 (--no_out_total)  \
+                 (--no_out_pml)
+```
+
+### Important Notes on File Paths (Docker)
+
+When running Docker with:
+
+``` text
+-v "$(pwd):$(pwd)" -w "$(pwd)"
+```
+only files located in the current working directory and its subdirectories are visible inside the container.
+
+Therefore:
+
+- All input files (e.g., .mol2, .yaml) must be placed in the current directory or in directories beneath it.
+
+- Files located in parent directories (e.g., ../priority.yaml) will not be accessible unless the parent directory is explicitly mounted.
+
+
 ## Citation
 
 ```text
@@ -112,6 +155,7 @@ Typical output files are as follows.
   journal = {bioRxiv}
 }
 ```
+
 
 
 
