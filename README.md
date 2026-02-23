@@ -30,6 +30,15 @@ To validate the installation, run the provided test:
 The script calculates the interaction descriptors for the provided structures and input parameters, and compares them with precomputed reference results.
 If the results match, OK will be printed, indicating that the installation was successful.
 
+
+## Quick Example (A_IT003)
+
+The installation test case (A_IT003) also serves as a minimal example of intDesc.
+
+In this case, interactions between the antibody (chains L and H) and the antigen (chain O) are analyzed, focusing on residues L-Leu33 and L-Cys23 and their surrounding residues. The computed interaction descriptors are written to the results directory.
+
+For visualization, open data/A_IT003/edited_1_repHOH_addH.mol2 in PyMOL and load results/A_IT003_dup.pml. The .pml file highlights the detected interactions for inspection.
+
 ## How to run intDesc
 ```text
 $ python interaction_descriptor.py mutant ¥  
@@ -155,6 +164,7 @@ Therefore:
   journal = {bioRxiv}
 }
 ```
+
 
 
 
