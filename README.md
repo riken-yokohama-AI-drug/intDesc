@@ -107,6 +107,13 @@ Typical output files are as follows.
   - prefix.pml: A pymol script to visualize the detected interactions. This file will be loaded into the pymol session that opens the mol2 file used in the interaction_descriptor.py program.
   - prefix_interaction_count_list.csv:  A list of the number of interactions detected for each individual type of interaction.
 
+## Datasets
+The machine learning datasets used in the study (see citation below) are provided in the `data/` directory:
+- `train_water_integrated.csv` – Training set using descriptors in which water-mediated interactions are integrated.
+- `test_water_integrated.csv` – Test set using descriptors in which water-mediated interactions are integrated.
+- `train_water_nonintegrated.csv` – Training set using descriptors in which water-mediated interactions are not integrated.
+- `test_water_nonintegrated.csv` – Test set using descriptors in which water-mediated interactions are not integrated.
+
 ## Using Docker 
 
 ### Build Docker Image
@@ -164,6 +171,7 @@ Therefore:
   journal = {bioRxiv}
 }
 ```
+
 
 
 
