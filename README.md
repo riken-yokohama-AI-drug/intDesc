@@ -18,7 +18,19 @@ intDesc is software for automatic, comprehensive, and precise identification and
 - pyyaml
 
 ## Install and Test
-This program can be executed by git-cloning this repository.
+Below is an example installation procedure.
+
+```text
+# Create a Python environment
+conda create -n intDesc python=3.9
+conda activate intDesc
+# Clone the AbMut branch used in this study
+git clone -b intDesc-AbMut https://github.com/riken-yokohama-AI-drug/intDesc.git
+cd intDesc
+# Install dependencies
+pip install -r requirements.txt
+```
+
 To validate the installation, run the provided test:
 
 ```text
@@ -28,7 +40,7 @@ To validate the installation, run the provided test:
 ```
 
 The script calculates the interaction descriptors for the provided structures and input parameters, and compares them with precomputed reference results.
-If the results match, OK will be printed, indicating that the installation was successful.
+If the results match the reference outputs, "OK" will be printed, indicating successful installation.
 
 
 ## Quick Example (A_IT003)
@@ -41,25 +53,25 @@ For visualization, open data/A_IT003/edited_1_repHOH_addH.mol2 in PyMOL and load
 
 ## How to run intDesc
 ```text
-$ python interaction_descriptor.py mutant ¥  
-        [mol2 file] ¥  
-        [Interaction target molecule specification file] ¥  
-        [van der waals radius definition file] ¥  
-        [interaction criteria file] ¥  
-        [interaction priority file] ¥  
-        [prefix of output file name] ¥  
-        (--on_14) ¥  
-        (--dup) ¥  
-        (--no_mediate) ¥  
-        (--no_out_total) ¥  
+$ python interaction_descriptor.py mutant \
+        [mol2 file] \
+        [Interaction target molecule specification file] \
+        [van der waals radius definition file] \
+        [interaction criteria file] \
+        [interaction priority file] \
+        [prefix of output file name] \
+        (--on_14) \
+        (--dup) \
+        (--no_mediate) \
+        (--no_out_total) \
         (--no_out_pml)  
 ```
-
+  - mutant is a mode name of interaction_descriptor.py that activates the antibody–mutant residue interaction calculation workflow used in intDesc-AbMut.
   - [mol2 file] Specify the input mol2 file.
   - [Interaction target molecule specification file] See the following section.
   - [van der waals radius definition file] 
         Specify the vdW radius file (See input/vdw_radius.yaml)
-  - [interaction threshold setting file]
+  - [interaction criteria file]
         Specify interaction criteria file (See input/param.yaml)
   - [interaction priority file] 
         Specify the priority file (See input/priority.yaml)
@@ -99,7 +111,7 @@ antigen:
   chain: [C]
 ```
 
-In the example, interactions will be detected between the region specified by mutant_[N] item(s) and the region specified by the antibody and antigen items. In the mutant_[N] item, the residue ID, the residue name, and chain ID are given by num, name, and chain items, respectively. If the type item is "side", the target region will be restricted to the side chain. The the type item is "main", the target region will include main chain atoms, names of which are C, N, CA, O, H, HA. See the install_test directory for more examples.
+In the example, interactions will be detected between the region specified by mutant_[N] item(s) and the region specified by the antibody and antigen items. In the mutant_[N] item, the residue ID, the residue name, and chain ID are given by num, name, and chain items, respectively. If the type item is "side", the target region will be restricted to the side chain. type: main specifies that main-chain (backbone) atoms are included in the interaction calculation together with side-chain atoms. See the install_test directory for more examples.
 
 ### Output files
 Typical output files are as follows.
@@ -171,6 +183,7 @@ Therefore:
   journal = {bioRxiv}
 }
 ```
+
 
 
 
