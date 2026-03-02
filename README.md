@@ -28,7 +28,12 @@ conda activate intDesc
 git clone -b intDesc-AbMut https://github.com/riken-yokohama-AI-drug/intDesc.git
 cd intDesc
 # Install dependencies
-pip install -r requirements.txt
+pip install \
+  networkx==3.2.1 \
+  numpy==1.23.5 \
+  pandas==1.5.3 \
+  biopandas==0.2.7 \
+  pyyaml
 ```
 
 To validate the installation, run the provided test:
@@ -183,6 +188,7 @@ Therefore:
   journal = {bioRxiv}
 }
 ```
+
 
 
 
