@@ -38,16 +38,23 @@ The program does not require installation. Place this repository in an environme
 ---
 
 ## Setup
-Clone the repository:
+Clone the repository and switch to the `intDesc-MD` branch:
 
-git clone https://github.com/your-username/your-repository.git
+```bash
+git clone https://github.com/riken-yokohama-AI-drug/intDesc.git
+cd intDesc
+git checkout intDesc-MD
+```
 
-Then move to the directory and run the test:
+Then move to the test directory and run the test:
 
+```bash
 cd install_test/
 bash run_test.sh
+```
 
 ---
+
 
 ## How to run intDesc
 
