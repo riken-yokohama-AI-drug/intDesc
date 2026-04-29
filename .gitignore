@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+intDesc-MD/install_test/data/
+intDesc-MD/install_test/result/

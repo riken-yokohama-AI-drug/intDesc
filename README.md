@@ -26,26 +26,36 @@ This public release focuses on the **`medium`** mode, which is the workflow used
 
 It provides two implementations:
 
-- **CPU multithreaded version** (`trajectory_descriptor.py`)
-- **MPI-based version** (`trajectory_descriptor_mpi.py`)
+- **CPU multithreaded version** (`src/trajectory_descriptor.py`)
+- **MPI-based version** (`src/trajectory_descriptor_mpi.py`)
 
 ---
 
-## Tested environment
+## Requirements and tested environment
 
-The current public release has been validated for the **serial CPU version** in the following Python environment, which was used for the current installation test:
+A conda environment definition file is provided as `intDesc-MD/environment.yaml`. Please use this file as the primary reference for the exact package versions, channels, and transitive dependencies used for the current public release.
 
-- python 3.11.14
-- networkx 3.6.1
-- numpy 2.4.2
+The current public release has been validated for the **serial CPU version** using the conda environment defined in `environment.yaml`. The major dependencies are:
+
+- Python 3.11.14
+- NetworkX 3.6.1
+- NumPy 2.4.2
 - pandas 3.0.0
-- biopandas 0.5.1
-- pyyaml 6.0.3
-- mdanalysis 2.10.0
+- BioPandas 0.5.1
+- PyYAML 6.0.3
+- MDAnalysis 2.10.0
 
-These versions correspond to the environment used for the current installation test and are therefore used here as the primary reference for the public README.
+To create the conda environment, run the following commands after cloning the repository and switching to the `intDesc-MD` branch:
 
-The **MPI version** was **not** separately verified in the current installation test. The system manual lists **mpi4py** as the required Python package for the MPI implementation, but its version was not independently confirmed in the present validation. For MPI execution, please use an `mpi4py` version compatible with your Python version and local MPI environment.
+```bash
+cd intDesc-MD
+conda env create -f environment.yaml
+conda activate intDescMD_env
+```
+
+The complete dependency list, including build strings and additional packages installed in the tested environment, is provided in `environment.yaml`.
+
+The **MPI version** was **not** separately verified in the current installation test. The system manual lists **mpi4py** as the required Python package for the MPI implementation, but `mpi4py` is not included in the provided `environment.yaml`. For MPI execution, please install an `mpi4py` version compatible with your Python version and local MPI environment.
 
 ---
 
@@ -59,53 +69,74 @@ cd intDesc
 git checkout intDesc-MD
 ```
 
+The public directory for this release is `intDesc-MD/`. Move into this directory before creating the environment or running the program:
+
+```bash
+cd intDesc-MD
+```
+
 ---
 
 ## Repository structure
 
-The current repository is organized as follows:
+The current public directory is organized as follows:
 
 ```text
-intDesc-MD_ver1.0.1/
-├── edit_parametar.py
-├── group.yaml
-├── install_test/
-├── interaction.py
-├── mol2.py
-├── my_math.py
-├── sample/
-├── trajectory.py
-├── trajectory_descriptor.py
-├── trajectory_descriptor_mpi.py
-└── water_definition.txt
+intDesc-MD/
+├── environment.yaml
+├── install_test
+│   ├── data.zip
+│   └── run_test.sh
+├── sample
+│   └── medium/
+│       ├── cyclic_gly6.dcd
+│       ├── cyclic_gly6.mol2
+│       ├── mol_select.yaml
+│       ├── vdw_radius.yaml
+│       ├── param.yaml
+│       └── priority.yaml
+└── src
+    ├── edit_parametar.py
+    ├── group.yaml
+    ├── interaction.py
+    ├── mol2.py
+    ├── my_math.py
+    ├── trajectory.py
+    ├── trajectory_descriptor.py
+    ├── trajectory_descriptor_mpi.py
+    └── water_definition.txt
+
 ```
 
 Main components:
 
-- `trajectory_descriptor.py`  
+- `environment.yaml`  
+  Conda environment definition file for reproducing the tested Python environment.
+- `src/trajectory_descriptor.py`  
   CPU multithreaded version of intDesc-MD.
-- `trajectory_descriptor_mpi.py`  
+- `src/trajectory_descriptor_mpi.py`  
   MPI-based version intended for HPC environments.
-- `trajectory.py`  
+- `src/trajectory.py`  
   Trajectory loading utilities based on MDAnalysis.
-- `mol2.py`  
+- `src/mol2.py`  
   MOL2 parsing and molecule-type assignment.
-- `interaction.py`  
+- `src/interaction.py`  
   Core interaction detection logic.
-- `my_math.py`  
+- `src/my_math.py`  
   Geometry helper functions used in interaction calculations.
-- `edit_parametar.py`  
+- `src/edit_parametar.py`  
   Utility script for editing interaction parameter files.
-- `group.yaml`  
+- `src/group.yaml`  
   Interaction group definition file.
-- `water_definition.txt`  
+- `src/water_definition.txt`  
   Water molecule definition file used for output generation.
 - `sample/`  
   Example input files.
 - `install_test/`  
   Installation test data and scripts.
-- `requirements.txt`  
-  Python dependency list.
+  The `install_test/` directory contains a compressed test dataset (`data.zip`) and a test script (`run_test.sh`). 
+  When `run_test.sh` is executed, `data.zip` is extracted and a temporary `data/` directory is generated for the installation test.
+  The test also generates a `result/` directory containing output files used for MD5 checksum validation.
 
 Note that Python cache files such as `__pycache__/` are not part of the intended repository contents and do not need to be included in the public release.
 
@@ -119,25 +150,26 @@ The MPI version is intended for HPC environments and may require site-specific M
 
 The install test provided in this repository is a **minimal validated example for the `medium` mode**, using a **DCD trajectory** together with a **MOL2 structure file**. Other trajectory formats supported by **MDAnalysis** may also be used in normal analyses, but the install test is based on DCD for simplicity and reproducibility.
 
-Move to the test directory and run:
+From the `intDesc-MD/` directory, move to the test directory and run:
 
 ```bash
 cd install_test/
 bash run_test.sh
 ```
 
-The test script validates the generated output files using `md5sum`.
+The test script validates the generated output files using `md5sum`.  
+During the test, MDAnalysis may emit a warning when reading the DCD trajectory. This is a known warning from MDAnalysis and does not affect the validated output files; see the Notes section below.
 
 ---
 
 ## How to run intDesc-MD
 
-In this README, only the **`medium`** mode is documented in detail.
+In this README, only the **`medium`** mode is documented in detail. The following commands assume that they are executed from the `intDesc-MD/` directory.
 
 ### CPU multithreaded version
 
 ```text
-python trajectory_descriptor.py medium \
+python src/trajectory_descriptor.py medium \
     [trajectory file] \
     [mol2 file] \
     [interaction target molecule specification file] \
@@ -151,7 +183,7 @@ python trajectory_descriptor.py medium \
 ### MPI-based version
 
 ```text
-mpiexec -n [number of processes] python trajectory_descriptor_mpi.py medium \
+mpiexec -n [number of processes] python src/trajectory_descriptor_mpi.py medium \
     [trajectory file] \
     [mol2 file] \
     [interaction target molecule specification file] \
@@ -200,7 +232,7 @@ mpiexec -n [number of processes] python trajectory_descriptor_mpi.py medium \
 ### Minimal example (`medium` mode)
 
 ```bash
-python trajectory_descriptor.py medium \
+python src/trajectory_descriptor.py medium \
     sample.dcd \
     sample.mol2 \
     sample/mol_select.yaml \

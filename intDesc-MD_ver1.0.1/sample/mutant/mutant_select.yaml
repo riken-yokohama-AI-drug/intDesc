@@ -1,9 +1,0 @@
-solvent_1:
-  name: HOH
-mutant:
-  num: [30, 31]
-  chain: H
-antibody:
-  chain: [H, L]
-antigen:
-  chain: T

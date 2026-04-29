@@ -1,0 +1,6 @@
+peptide:
+ chain: A
+solvent_1:
+ name: TIP
+solvent_2:
+ name: POP
